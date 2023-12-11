@@ -1,9 +1,1 @@
-# React + Vite
-
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# InfiniteScroll
+In this project, I had the opportunity to learn more about the Intersection Observer and practice its usage. Upon loading, the app fetches 10 photos from the Unsplash API. When the last photo intersects, the app sends another request for an additional 10 photos, creating an infinite scroll effect. Additionally, I had the chance to practice creating a custom hook for data fetching.
