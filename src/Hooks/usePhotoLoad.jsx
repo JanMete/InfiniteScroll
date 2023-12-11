@@ -7,12 +7,12 @@ export default function useLoadPhotos(isVisible) {
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
-    if (!isVisible) return; // Don't fetch data if isVisible is false
+    if (!isVisible) return;
 
     setLoading(true);
     setError(false);
     let cancel;
-    const apiKey = '8reh6PFnmVgWIxXKnv5S61k5DPHhle2EE8ETvEOGoHc';
+    const apiKey = import.meta.env.VITE_VARK_KEY;
 
     axios({
       method: 'GET',

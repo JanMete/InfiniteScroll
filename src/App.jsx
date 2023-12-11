@@ -1,4 +1,4 @@
-import usePhotoLoad from './usePhotoLoad';
+import usePhotoLoad from './Hooks/usePhotoLoad';
 import { useState, useRef, useCallback } from 'react';
 import styles from './app.module.css';
 import LOADER from './assets/loader.svg';
