@@ -4,17 +4,20 @@ import styles from './app.module.css';
 import LOADER from './assets/loader.svg';
 
 function App() {
-  const [pageNumber, setPageNumber] = useState(10);
-  const { loading, error, photos } = usePhotoLoad(pageNumber);
+  const [isVisible, setIsVisible] = useState(true);
+  const { loading, error, photos } = usePhotoLoad(isVisible);
 
   const observer = useRef();
+
   const lastPhotoRef = useCallback(
     (node) => {
       if (loading) return;
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-          setPageNumber((prevPageNumber) => prevPageNumber + 1);
+          setIsVisible(true);
+        } else {
+          setIsVisible(false);
         }
       });
       if (node) observer.current.observe(node);

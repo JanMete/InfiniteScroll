@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
-export default function useLoadPhotos(pageNumber) {
+export default function useLoadPhotos(isVisible) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [photos, setPhotos] = useState([]);
 
   useEffect(() => {
+    if (!isVisible) return; // Don't fetch data if isVisible is false
+
     setLoading(true);
     setError(false);
     let cancel;
@@ -14,7 +16,7 @@ export default function useLoadPhotos(pageNumber) {
 
     axios({
       method: 'GET',
-      url: `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=${pageNumber}`,
+      url: `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=10`,
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     })
       .then((res) => {
@@ -29,7 +31,7 @@ export default function useLoadPhotos(pageNumber) {
       });
 
     return () => cancel();
-  }, [pageNumber]);
+  }, [isVisible]);
 
   return { loading, error, photos };
 }
