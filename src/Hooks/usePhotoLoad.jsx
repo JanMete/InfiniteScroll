@@ -16,7 +16,7 @@ export default function useLoadPhotos(isVisible) {
 
     axios({
       method: 'GET',
-      url: `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=10`,
+      url: `https://api.unsplash.com/photos/random/?client_id=${apiKey}&count=5`,
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     })
       .then((res) => {
